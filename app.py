@@ -11,11 +11,12 @@ load_dotenv()
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
+# Initialize OpenAI client using new SDK style
+client = OpenAI(api_key=OPENAI_API_KEY)
+
 # Initialize Flask app
 app = Flask(__name__)
 
-# Initialize OpenAI client using new SDK style
-client = OpenAI(api_key=OPENAI_API_KEY)
 
 # Define your webhook route - cleaner version, not using the full bot token in URL
 @app.route("/webhook", methods=["POST"])
